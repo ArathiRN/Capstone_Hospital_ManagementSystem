@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointments List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            color: black;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+
+        th {
+            background-color: steelblue;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+
+        tr:hover {
+            background-color: lightgray;
+        }
+
+        .no-data {
+            text-align: center;
+            font-style: italic;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Appointments List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Appointment Id</th>
+            <th>Doctor Name</th>
+            <th>Patient Name</th>
+            <th>Schedule Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="appointment: ${appointments}">
+            <td th:text="${appointment.id}"></td>
+            <td th:text="${appointment.doctorName}"></td>
+            <td th:text="${appointment.patientName}"></td>
+            <td th:text="${appointment.appointmentDate}"></td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
